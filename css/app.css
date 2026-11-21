@@ -1,0 +1,131 @@
+/* Wycena Ciast – style aplikacji (z zaakceptowanej makiety v2).
+   Czcionka Lexend (OFL), lokalnie – działa offline. */
+@font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(../fonts/lexend-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lexend";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(../fonts/lexend-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  /* baza */
+  --tlo:#F1F1EC; --karta:#FFFFFF; --tekst:#23272B; --szary:#5C636A; --linia:#E3E4DE;
+  /* akcent: przygaszona śliwka */
+  --akcent:#5B4A5A; --akcent-jasny:#EEE9ED; --akcent-ciemny:#3E3340; --obrys:#CFC6CD;
+  --wylaczony:#B3B6B0; --segment:#E7E8E2;
+  /* stany – przygaszone */
+  --zielony:#2E6A4E; --zielony-tlo:#E2EDE5;
+  --zolty:#765A16;   --zolty-tlo:#F2EAD4;
+  --czerwony:#993A33;--czerwony-tlo:#F3E1DE;
+  --nieb:#3D5466;    --nieb-tlo:#E2E8ED;   --neutr-tlo:#E8E9E4;
+  --promien:16px;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:"Lexend",-apple-system,system-ui,sans-serif;font-size:17px;line-height:1.35;color:var(--tekst);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;
+  background:var(--tlo);min-height:100vh;
+  -webkit-text-size-adjust:100%}
+
+
+h1{font-size:30px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+h2{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+h3{font-size:18px;font-weight:700}
+.wstecz{color:var(--akcent);font-size:17px;font-weight:600}
+
+.karta{background:var(--karta);border:1px solid var(--linia);border-radius:var(--promien);padding:16px;display:flex;flex-direction:column;gap:11px}
+.wiersz{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.wiersz>.rozciag{flex:1}
+.wiersz>b,.wiersz>span:not(.rozciag),.wiersz>h3{white-space:nowrap}
+.maly-tekst{font-size:15px;color:var(--szary)}
+.drobny{font-size:14px;color:var(--szary)}
+.mocny{font-weight:700}
+.kreska{height:1px;background:var(--linia)}
+b{font-weight:700}
+
+/* lista ciast: dwie liczby z podpisem */
+.liczby{display:flex;gap:28px}
+.liczby>span{font-size:17px;font-weight:600}
+.liczby small{display:block;font-size:13px;font-weight:400;color:var(--szary)}
+
+.odznaka{font-size:14px;font-weight:700;border-radius:8px;padding:3px 9px;white-space:nowrap}
+.z{color:var(--zielony);background:var(--zielony-tlo)} .y{color:var(--zolty);background:var(--zolty-tlo)}
+.r{color:var(--czerwony);background:var(--czerwony-tlo)} .n{color:var(--szary);background:var(--neutr-tlo)}
+.bl{color:var(--nieb);background:var(--nieb-tlo)} .g{color:var(--zielony);background:var(--zielony-tlo)}
+.notka{border-radius:12px;padding:11px 13px;font-size:15px;font-weight:600;line-height:1.35}
+
+.btn{min-height:50px;border-radius:12px;padding:0 18px;font-family:inherit;font-weight:700;font-size:17px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;border:1.5px solid transparent;white-space:nowrap}
+.btn.pelny{width:100%}
+.glowny{background:var(--akcent);color:#fff}
+.drugi{background:var(--karta);color:var(--akcent);border-color:var(--obrys)}
+.usun{background:var(--karta);color:var(--czerwony);border-color:#E3C9C5}
+.maly{background:var(--akcent-jasny);color:var(--akcent);min-height:42px;font-size:16px;align-self:flex-start}
+.nieakt{background:var(--segment);color:var(--wylaczony);font-size:22px}
+.krok{width:48px;padding:0;font-size:24px;font-weight:600}
+.para{display:flex;gap:10px}.para>.btn{flex:1}
+
+.pole{display:flex;flex-direction:column;gap:6px}
+.pole>label{font-size:15px;font-weight:600;color:var(--szary)}
+.wpis{min-height:50px;background:var(--karta);border:1.5px solid #D3D5CE;border-radius:10px;padding:0 13px;display:flex;align-items:center;justify-content:space-between;font-size:18px;gap:6px}
+.wpis .jedn{font-size:16px;color:var(--szary)}
+.wpis.aktywny{border:2px solid var(--akcent)} .wpis.blad{border:2px solid var(--czerwony)} .wpis.wyl{background:var(--segment);color:var(--szary)}
+.wpis.ph{color:var(--szary)}
+.blad-tekst{font-size:14px;font-weight:700;color:var(--czerwony)}
+.szukaj{min-height:48px;background:var(--karta);border:1px solid var(--linia);border-radius:12px;padding:0 13px;display:flex;align-items:center;gap:9px;color:var(--szary)}
+.szukaj.aktywny{border:2px solid var(--akcent);color:var(--tekst)}
+.ikona{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+.seg{display:flex;background:var(--segment);border-radius:10px;padding:3px;gap:3px}
+.seg>span{flex:1;min-height:40px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:var(--szary);border-radius:8px}
+.seg>span.on{background:var(--karta);color:var(--akcent);font-weight:700;box-shadow:0 1px 2px rgba(35,39,43,.12)}
+
+.pasek{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--karta);border-top:1px solid var(--linia);display:flex;padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+.pasek>a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:13px;font-weight:600;color:var(--szary);text-decoration:none}
+.pasek>a.on{color:var(--akcent);font-weight:700}
+.pasek .ikona{width:25px;height:25px}
+
+.ciasto-wiersz{font-size:17px}
+.ciasto-wiersz .ilosc{color:var(--szary);min-width:64px;text-align:right}
+.ciasto-wiersz b{min-width:72px;text-align:right}
+.pozycja{display:flex;gap:8px;align-items:center}
+.pozycja .wpis{min-height:46px;font-size:17px}
+.pozycja .sklad{flex:1}
+.pozycja .il{width:74px}
+.cennik-wiersz{display:flex;align-items:center;gap:10px;padding:13px 0;border-top:1px solid var(--linia)}
+.cennik-wiersz:first-child{border-top:0}
+.cennik-wiersz .cena{color:var(--tekst);font-weight:700}
+
+/* jedyny mocny element: podsumowanie pieniędzy na ekranie ciasta */
+.podsum{background:var(--akcent-ciemny);border-color:var(--akcent-ciemny);color:#fff;gap:9px}
+.podsum h3{color:#fff}
+.podsum .maly-tekst{color:rgba(255,255,255,.74)}
+.podsum .kreska{background:rgba(255,255,255,.2)}
+.podsum b[style]{color:#fff!important}
+
+.tlo-okna{background:rgba(35,39,43,.42);border-radius:16px;padding:40px 22px}
+.okno{background:var(--karta);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:13px;box-shadow:0 10px 30px rgba(35,39,43,.22)}
+.okno h3{font-size:20px}
+.grupa{display:flex;flex-direction:column;gap:10px}
+.grupa>.nazwa{font-size:14px;font-weight:700;color:var(--szary)}
+
+/* ---- szkielet aplikacji ---- */
+button,input,select,textarea{font-family:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+input,select,textarea{font-size:18px}
+a{-webkit-tap-highlight-color:transparent}
+.ekran{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px;
+  padding:calc(24px + env(safe-area-inset-top)) 16px calc(110px + env(safe-area-inset-bottom))}
+input.wpis,select.wpis{width:100%;font-size:18px;font-family:inherit;display:block}
+input.wpis:focus,select.wpis:focus{outline:none;border:2px solid var(--akcent)}
+.pasek>a{padding:2px 0;min-height:48px}
+.komunikat{position:fixed;left:16px;right:16px;bottom:calc(88px + env(safe-area-inset-bottom));z-index:30;
+  max-width:488px;margin:0 auto;border-radius:12px;padding:13px 15px;font-size:16px;font-weight:600;
+  box-shadow:0 6px 20px rgba(35,39,43,.25)}
+.komunikat.ok{background:var(--zielony);color:#fff}
+.komunikat.blad{background:var(--czerwony);color:#fff}
+.nakladka{position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;
+  background:rgba(35,39,43,.42);padding:22px}
+.nakladka .okno{width:100%;max-width:420px}
+.wpis-z-jednostka{display:flex;align-items:center;gap:8px}
+.wpis-z-jednostka .jedn{font-size:16px;color:var(--szary)}
+[hidden]{display:none!important}
